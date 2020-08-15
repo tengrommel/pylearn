@@ -11,7 +11,8 @@ def compute_error_for_line_given_points(b, w, points):
     return totalError / float(len(points))
 
 
-def step_gradient(b_current, w_current, points, learningRate):
+# 计算梯度信息
+def step_gradient(b_current, w_current, points, learning_rate):
     b_gradient = 0
     w_gradient = 0
     N = float(len(points))
@@ -20,9 +21,9 @@ def step_gradient(b_current, w_current, points, learningRate):
         y = points[i, 1]
         b_gradient += -(2/N) * (y - ((w_current * x) + b_current))
         w_gradient += -(2/N) * x * (y - ((w_current * x) + b_current))
-    new_b = b_current - (learningRate * b_gradient)
-    new_m = w_current - (learningRate * w_gradient)
-    return [new_b, new_m]
+    new_b = b_current - (learning_rate * b_gradient)
+    new_w = w_current - (learning_rate * w_gradient)
+    return [new_b, new_w]
 
 
 def gradient_descent_runner(points, starting_b, starting_m, learning_rate, num_iterations):
@@ -36,8 +37,8 @@ def gradient_descent_runner(points, starting_b, starting_m, learning_rate, num_i
 def run():
     points = np.genfromtxt("data.csv", delimiter=",")
     learning_rate = 0.0001
-    initial_b = 0 # initial y-intercept guess
-    initial_m = 0 # initial slope guess
+    initial_b = 0  # initial y-intercept guess
+    initial_m = 0  # initial slope guess
     num_iterations = 1000
     print("Starting gradient descent at b = {0}, m = {1}, error = {2}"
           .format(initial_b, initial_m,
