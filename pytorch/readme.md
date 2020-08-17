@@ -19,4 +19,20 @@
     - Train
     - Test
 
+How to denote string
 
+- One-hot
+    - [0,1,0,0,...]
+- Embedding
+    - Word2vec
+    - glove
+
+uninitialized
+
+- Torch.empty()
+
+- Torch.FloatTensor(d1, d2, d3)
+
+- Torch.IntTensor(d1, d2, d3)
+
+# rand/rand_like, randint
