@@ -65,3 +65,5 @@ Key idea
 Math operation
 
 dim keepdim
+
+How to search for minima
