@@ -1,9 +1,9 @@
 from sklearn.datasets import load_boston
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
-from sklearn.linear_model import LinearRegression, SGDRegressor, Ridge, RidgeCV
 from sklearn.metrics import mean_squared_error
 from sklearn.externals import joblib
+from sklearn.linear_model import Ridge
 
 
 def dump_load_demo():
@@ -17,6 +17,12 @@ def dump_load_demo():
     transfer = StandardScaler()
     x_train = transfer.fit_transform(x_train)
     x_test = transfer.fit_transform(x_test)
+
+    # estimator = Ridge()
+    # estimator.fit(x_train, y_train)
+    # print("这个模型的偏置是：\n", estimator.intercept_)
+    # joblib.dump(estimator, "./data/test.pkl")
+
     estimator = joblib.load("./data/test.pkl")
     y_pre = estimator.predict(x_test)
     print("预测值是:\n", y_pre)
