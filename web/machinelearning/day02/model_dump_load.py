@@ -21,7 +21,7 @@ def dump_load_demo():
     # estimator = Ridge()
     # estimator.fit(x_train, y_train)
     # print("这个模型的偏置是：\n", estimator.intercept_)
-    # joblib.dump(estimator, "./data/test.pkl")
+    # joblib.dump(estimator, "./data/data.pkl")
 
     estimator = joblib.load("./data/test.pkl")
     y_pre = estimator.predict(x_test)

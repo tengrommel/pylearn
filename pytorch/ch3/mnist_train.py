@@ -90,9 +90,9 @@ for x, y in test_loader:
 # 将正确的个数除以总个数得到正确率
 total_num = len(test_loader.dataset)
 acc = total_correct/total_num
-print('test acc:', acc)
+print('data acc:', acc)
 
 x, y = next(iter(test_loader))
 out = net(x.view(x.size(0), 28*28))
 pred = out.argmax(dim=1)
-plot_image(x, pred, 'test')
+plot_image(x, pred, 'data')
