@@ -1,5 +1,5 @@
 import torch
-from torch import nn
+from torch import nn # 完成神经网络的工作
 from torch.nn import functional as F
 from torch import optim
 
@@ -53,8 +53,9 @@ class Net(nn.Module):
 net = Net()
 optimizer = optim.SGD(net.parameters(), lr=0.01, momentum=0.9)
 train_loss = []
+
 # [w1, b1, w2, b2, w3, b3] 梯度计算的优化器
-# 测试 训练
+# 测试 训练 迭代三次
 for epoch in range(3):
     for batch_idx, (x, y) in enumerate(train_loader):
         # print(x.shape, y.shape)
@@ -65,7 +66,7 @@ for epoch in range(3):
         # [b, 10]
         y_onehot = one_host(y)
         loss = F.mse_loss(out, y_onehot)
-        # 得到梯度
+        # 得到梯度 通过梯度优化器更新
         optimizer.zero_grad()
         loss.backward()
         # w' = w - lr * grad
